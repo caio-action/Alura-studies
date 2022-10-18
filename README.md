@@ -1,1 +1,1 @@
-# Cronômetro desenvolvido em React feito com Typescript.
+# Cronômetro desenvolvido em React e Typescript.
