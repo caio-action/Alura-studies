@@ -16,13 +16,32 @@ function App() {
       selected: task.id === taskSelected.id ? true : false
     })))
   }
+
+  function endingTask() {
+    if(selected) {
+      setSelected(undefined); 
+      setTasks(oldTasks => oldTasks.map(task => {
+        if(task.id === selected.id) {
+          return{
+            ...task, 
+            selected: false,
+            completed: true
+          }
+        }
+        return task;
+      })) 
+    }
+  }
+
   return (
     <div className={style.AppStyle}>
     <Form setTasks={setTasks}/>
     <List 
     Tasks={Tasks}
     taskSelection={taskSelection} />
-    <Cronometro selected={selected}/>
+    <Cronometro 
+    selected={selected} 
+    endingTask={endingTask}/>
     </div>
   );
 }
